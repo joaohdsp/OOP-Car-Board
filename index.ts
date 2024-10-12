@@ -6,9 +6,11 @@ const iptModel = document.getElementById("iptModel") as HTMLInputElement;
 const iptBrand = document.getElementById("iptBrand") as HTMLInputElement;
 const pgrModel = document.getElementById("pgrModel") as HTMLParagraphElement;
 const tblCar = document.getElementById("tblCar") as HTMLTableElement;
+const iptSince = document.getElementById("iptSince") as HTMLInputElement;
+const pgrSince = document.getElementById("pgrSince") as HTMLParagraphElement;
 
 // const car = { model: "", brand: "" };
-//let car: { model: string; brand: string };
+// let car: { model: string; brand: string };
 
 const cars: Car[] = [];
 
@@ -16,6 +18,7 @@ function saveCar() {
   const car = new Car();
   car.model = iptModel.value;
   car.brand = iptBrand.value;
+  car.since = parseInt(iptSince.value);
 
   cars.push(car);
 }
@@ -25,8 +28,6 @@ function saveCar() {
 //}
 
 function listCar() {
-  pgrModel.innerText = "Carro digitado: " + JSON.stringify(cars);
-
   let car: Car;
 
   tblCar.innerHTML = "";
@@ -34,7 +35,7 @@ function listCar() {
   for (car of cars) {
     tblCar.innerHTML =
       tblCar.innerHTML +
-      `<tr> <td>${car.model}</td> <td>${car.brand}</td> </tr>`;
+      `<tr> <td>${car.model}</td> <td>${car.brand}</td> <td>${car.since}</td> </tr>`;
   }
 }
 

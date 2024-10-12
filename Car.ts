@@ -1,5 +1,5 @@
 export class Car {
-    model?: string;
-    brand?: string;
-  }
-  
+  model?: string;
+  brand?: string;
+  since?: number;
+}
