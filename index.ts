@@ -17,13 +17,33 @@ const pgrDoor = document.getElementById("pgrDoor") as HTMLParagraphElement;
 const cars: Car[] = [];
 
 function saveCar() {
+  const model = iptModel.value;
+  const brand = iptBrand.value;
+  const since = parseInt(iptSince.value);
+  const door = parseInt(iptDoor.value);
+
+  // Verifica se o modelo tem pelo menos 2 letras
+  if (model.length < 2) {
+    alert("O modelo deve ter pelo menos 2 letras.");
+    return; // Cancela o salvamento se a condição não for atendida
+  }
+
+  // Verifica se o número de portas é maior que 6
+  if (door > 6) {
+    alert("O número de portas não pode ser maior que 6.");
+    return; // Cancela o salvamento se a condição não for atendida
+  }
+
   const car = new Car();
-  car.model = iptModel.value;
-  car.brand = iptBrand.value;
-  car.since = parseInt(iptSince.value);
-  car.door = parseInt(iptDoor.value);
-  cars.push(car);
+  car.model = model;
+  car.brand = brand;
+  car.since = since;
+  car.door = door;
+
+  cars.push(car); // Salva o carro no array
 }
+
+
 // function saveCar() {
 // car.model = iptModel.value;
 // car.brand = iptBrand.value;
