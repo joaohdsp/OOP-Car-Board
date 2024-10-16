@@ -4,10 +4,12 @@ const btnSave = document.getElementById("btnSave");
 const btnList = document.getElementById("btnList");
 const iptModel = document.getElementById("iptModel") as HTMLInputElement;
 const iptBrand = document.getElementById("iptBrand") as HTMLInputElement;
+const iptDoor = document.getElementById("iptDoor") as HTMLInputElement;
 const pgrModel = document.getElementById("pgrModel") as HTMLParagraphElement;
 const tblCar = document.getElementById("tblCar") as HTMLTableElement;
 const iptSince = document.getElementById("iptSince") as HTMLInputElement;
 const pgrSince = document.getElementById("pgrSince") as HTMLParagraphElement;
+const pgrDoor = document.getElementById("pgrDoor") as HTMLParagraphElement;
 
 // const car = { model: "", brand: "" };
 // let car: { model: string; brand: string };
@@ -19,7 +21,7 @@ function saveCar() {
   car.model = iptModel.value;
   car.brand = iptBrand.value;
   car.since = parseInt(iptSince.value);
-
+  car.door = parseInt(iptDoor.value);
   cars.push(car);
 }
 // function saveCar() {
@@ -32,10 +34,15 @@ function listCar() {
 
   tblCar.innerHTML = "";
 
-  for (car of cars) {
-    tblCar.innerHTML =
-      tblCar.innerHTML +
-      `<tr> <td>${car.model}</td> <td>${car.brand}</td> <td>${car.since}</td> </tr>`;
+  for (let car of cars) {
+    tblCar.innerHTML += `
+      <tr>
+        <td>${car.model}</td>
+        <td>${car.brand}</td>
+        <td>${car.since}</td>
+        <td>${car.door}</td>
+      </tr>
+    `;
   }
 }
 
